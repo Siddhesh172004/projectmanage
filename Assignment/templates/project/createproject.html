@@ -1,0 +1,96 @@
+{% extends "Home1/HomeC.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock title %}
+
+{% block head %}
+
+{% block css %} 
+<style>
+.messages{
+  list-style-type: none;
+}
+</style>
+
+{% endblock css %}
+
+{% endblock head %}
+
+{% block body %}
+<div class="container mb-3">
+  <h1 class="Display-1 text-center">Submit your Project here.</h1>
+
+  <form  action="/project/uploadproject/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Please Enter your valid Email ID</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="input1" class="form-label">Title</label>
+        <input type="text" name="title" placeholder="Enter the Title of your Project" class="form-control" id="input1" aria-describedby="input1Help" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="input3" class="form-label">Description</label>
+        <input type="text" name="desc" placeholder="Enter description of your Project" class="form-control" id="input3" aria-describedby="input3Help">
+      </div>
+
+      <div class="mb-3">
+        <label for="input5" class="form-label">Enrollment Number</label>
+        <input maxlength="10" minlength="10" min="10" max="10" type="text" name="enroll_no" placeholder="Enter your ENrollment number" class="form-control" id="input5" aria-describedby="input5Help">
+      </div>
+      
+      <div class="mb-3">
+        <label for="input5" class="form-label">Select your Year and Department</label>
+        <div class="row">
+          <div class="col">
+            <select name="year" class="custom-select" required>
+              <option selected>Select your Year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+            </select>
+          </div>
+          <div class="col">
+            <select name="sec" class="custom-select" required>
+              <option selected>Select your Department</option>
+              <option value="(ME)">(ME)</option>
+              <option value="(CO)">(CO)</option>
+              <option value="(EJ)">(EJ)</option>
+              <option value="(IF)">(IF)</option>
+              <option value="(CE)">(CE)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="input2" class="form-label">Github Link</label>
+        <input type="text" name="git_link" placeholder="Enter your Github Project URL" class="form-control" id="input2" aria-describedby="input2Help" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="input4" class="form-label">Live Link (Optional)</label>
+        <input type="text" name="live_link" placeholder="Enter the Live link of your Project" class="form-control" id="input4" aria-describedby="input4Help">
+      </div>
+
+   
+      <div class="mb-3">
+        <input type="file" name="screenshot" class="form-control" id="inputGroupFile03">
+      </div>
+      <!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div> -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {% endblock body %}
+  

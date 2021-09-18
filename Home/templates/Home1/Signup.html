@@ -1,0 +1,71 @@
+{% extends "Home1/HomeC.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock title %}
+
+{% block head %}
+
+{% block css %} 
+<style>
+.messages{
+  list-style-type: none;
+}
+</style>
+
+{% endblock css %}
+
+{% endblock head %}
+
+{% block body %}
+
+<div class="container w-50 my-5">
+        <form class="form-signin" action="/signview/" method="POST">
+      {% csrf_token %}
+        <div class="text-center mb-4">
+          <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">SignUp</h1>
+          <p>Signup to continue with blogs Or <a href="/login/"> click here</a> to login.</p>
+        </div>
+  
+        <div class="form-label-group mt-2">
+          <input type="text" id="usernameInput" class="form-control" name="username" placeholder="Email address" required autofocus>
+          <label for="usernameInput">Username</label>
+        </div>
+        <div class="form-label-group mt-2 mt-2">
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+          <label for="inputEmail">Email address</label>
+        </div>
+
+  <div class="form-label-group mt-2">
+    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Name" required autofocus>
+    <label for="first_name">First Name</label>
+    </div>
+  <div class="form-label-group mt-2">
+    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Name" required autofocus>
+    <label for="last_name">Last Name</label>
+  </div>
+  
+        <div class="form-label-group mt-2">
+          <input type="password" id="inputPassword1" class="form-control" placeholder="Password" required name="pass1">
+          <label for="inputPassword1">Password</label>
+        </div>
+
+        <div class="form-label-group mt-2">
+          <input type="password" id="inputPassword2" class="form-control" placeholder="Password" required name="pass2">
+          <label for="inputPassword2">Password again</label>
+        </div>
+  
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
+        
+      </form>
+
+</div>
+
+
+         
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   {% endblock body %}
+  

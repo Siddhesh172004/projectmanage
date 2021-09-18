@@ -1,0 +1,77 @@
+{% extends "Home1/HomeC.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock title %}
+
+{% block head %}
+
+{% block css %} 
+<style>
+.messages{
+  list-style-type: none;
+}
+</style>
+
+{% endblock css %}
+
+{% endblock head %}
+
+{% block body %}
+
+<div class="container-fluid">
+    {% if messages %}
+    <ul class="messages container-fluid">
+        {% for message in messages %}
+        <li {% if message.tags %}>
+          
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong> {{ message }} </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+        
+  {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+
+<div class="container w-50 my-5">
+
+<form class="form-signin" action="/logindone/" method="POST">
+        {% csrf_token %}
+          <div class="text-center mb-4">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+            <p>Login to continue.  Or <a href="/signup/">click here</a> to signup</p>
+          </div>
+    
+          <div class="form-label-group">
+            <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" required autofocus>
+            <label for="inputEmail">Username</label>
+          </div>
+    
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+          </div>
+    
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          
+        </form>
+
+  </div>
+  </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   {% endblock body %}
+  
